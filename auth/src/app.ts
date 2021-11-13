@@ -15,12 +15,12 @@ const app = express();
 // Make sure express is aware we are behind nginx-ingress proxy
 app.set('trust proxy', true);
 
-// - GLOBAL MIDDLEWARE -
+// - GLOBAL MIDDLEWARE --
 app.use(json());
 app.use(
   cookieSession({
     signed: false,
-    secure: true
+    secure: process.env.NODE_ENV !== 'test'
   })
 );
 
