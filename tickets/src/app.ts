@@ -5,6 +5,7 @@ import cookieSession from 'cookie-session';
 
 import { currentUser, errorHandler, NotFoundError } from '@wigansmedia/common';
 import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
 
 const app = express();
 
@@ -23,7 +24,7 @@ app.use(currentUser);
 
 // - ROUTE HANDLERS -
 app.use(createTicketRouter);
-
+app.use(showTicketRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
