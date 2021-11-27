@@ -32,7 +32,7 @@ declare global {
 global.getAuthCookie = () => {
   // Create payload object
   const payload = {
-    id: 'id12345678',
+    id: new mongoose.Types.ObjectId().toHexString(),
     email: 'test@test.com'
   };
 
